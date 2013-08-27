@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)http://localhost/LemnaDB/LemnaDB.php#lemnagrid_srcimg -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<!-- Meta, title, CSS, favicons, etc. -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title> LemnaDB Database </title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="http://getbootstrap.com/dist/css/bootstrap.css" rel="stylesheet">
+
+		<!-- Documentation extras -->
+		<link href="http://getbootstrap.com/assets/css/docs.css" rel="stylesheet">
+		<link href="http://getbootstrap.com/assets/css/pygments-manni.css" rel="stylesheet">
+
+		<link rel="apple-touch-icon-precomposed" href="http://getbootstrap.com/assets/ico/apple-touch-icon-57-precomposed.png">
+		<link rel="shortcut icon" href="http://getbootstrap.com/assets/ico/favicon.png">
+
+		<!-- Place anything custom after this. -->
+		<style id="holderjs-style" type="text/css">
+			.holderjs-fluid {
+				font-size: 16px;
+				font-weight: bold;
+				text-align: center;
+				font-family: sans-serif;
+				margin: 0
+			}
+		.holderjs-fluid {font-size:16px;font-weight:bold;text-align:center;font-family:sans-serif;margin:0}</style>
+	<style type="text/css"></style><style type="text/css"></style></head>
+	<body style="" data-twttr-rendered="true">
+
+		
+		<!-- Callout for the old docs link -->
+		<div class="bs-old-docs"></div>
+
+		<div class="container bs-docs-container">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="bs-sidebar hidden-print affix" role="complementary">
+						<ul class="nav bs-sidenav">
+							<li class="">
+								<a href="http://localhost/LemnaDB/LemnaDB.php#overview">Overview</a>
+									
+							</li>
+							<li class="active">
+								<a href="http://localhost/LemnaDB/LemnaDB.php#maintables">User Databases</a>
+								<ul class="nav">
+									<li class="">
+												<a href="http://localhost/LemnaDB/LemnaDB.php#snapshot">snapshot</a>
+											 </li><li class="">
+												<a href="http://localhost/LemnaDB/LemnaDB.php#lemnagrid_description">lemnagrid_description</a>
+											 </li><li class="">
+												<a href="http://localhost/LemnaDB/LemnaDB.php#job_table">job_table</a>
+											 </li><li class="">
+												<a href="http://localhost/LemnaDB/LemnaDB.php#analysis">analysis</a>
+											 </li>								</ul>
+									
+							</li>
+							<!--  Do again for the global tables, LemnaSystem -->
+							<li class="">
+								<a href="http://localhost/LemnaDB/LemnaDB.php#systemtables">LTSystem</a>
+								<ul class="nav">
+									<li class="">
+												<a href="http://localhost/LemnaDB/LemnaDB.php#plants">plants</a>
+											 </li><li class="">
+												<a href="http://localhost/LemnaDB/LemnaDB.php#watering">watering</a>
+											 </li>								</ul>
+									
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-9" role="main">
+					<!-- Global Bootstrap settings
+					================================================== -->
+						<div class="bs-docs-section">
+						<div class="page-header">
+							<h1 id="overview">Overview</h1>
+						</div>
+						<p class="lead">
+							This document contains discovered information about the LemnaTec Database System. This system contains two primary databases, 
+							one for global settings and system information (LTSystem), and the other for jobs being pushed through the system.
+						</p>
+						</div>
+						<div class="page-header">
+						<div class="bs-docs-section">
+							<h1 id="maintables">User Databases</h1>
+							<p class="lead">
+								The following is documentation on relevant tables found in the job specific databases. All image analysis tables will being with "r_", they are
+								not documented, as they are generated at runtime. The primary purpose of these tables is to perform the image analysis. The following are the key
+								tables involved with the actual processing of the job.
+							</p>
+							</div>
+						</div>
+
+						
+				<div class="bs-docs-section">
+				<h3 id="snapshot">snapshot</h3>
+				<p>
+				</p><div class="panel panel-default">
+				<div class="panel-heading">snapshot</div>
+				<div class="panel-body">
+				<p>A snapshot marks a measurement at some point in time. This usually is defined as a watering event.</p>
+				<h5>References</h5>
+				<p>
+				
+		<a href="http://localhost/LemnaDB/LemnaDB.php#analysis">analysis</a>,
+		<a href="http://localhost/LemnaDB/LemnaDB.php#snapshot_changelog">snapshot changelog</a>, 
+		<a href="http://localhost/LemnaDB/LemnaDB.php#tiled_image">tiled image</a>, 
+		<a href="http://localhost/LemnaDB/LemnaDB.php#tiled_intermediate_result">tiled intermediate result</a>, 
+		<a href="http://localhost/LemnaDB/LemnaDB.php#weight_data">weight data</a>
+				</p>
+				</div>
+				<table class="table">
+				<tbody><tr>
+				<th>fieldname</th><th>attribute</th><th>description</th><th>example</th></tr>
+				<tr><td>id</td><td>Big Serial</td><td></td><td></td></tr><tr><td>propagated</td><td>Boolean</td><td>Unknown purpose</td><td></td></tr><tr><td>configuration</td><td>Big Int</td><td>Unknown purpose</td><td></td></tr><tr><td>id_tag</td><td>Text</td><td></td><td></td></tr><tr><td>colour_integer</td><td>Int</td><td>Unknown Purpose</td><td></td></tr><tr><td>visited</td><td>Boolean</td><td>If the car has been visited</td><td></td></tr><tr><td>creator</td><td>text</td><td>Owner of this snapshot's username as defined in the LTSystem DB.</td><td></td></tr><tr><td>comment</td><td>Text</td><td>User input comment for this snapshot (meta comment)</td><td></td></tr><tr><td>car_tag</td><td>text</td><td>Value that is the same as id_tag in every instance. Likely refers to the Car tags in LTSystem DB.</td><td></td></tr><tr><td>measurement_label</td><td>text</td><td>User created label for this snapshot. IE Media Demo 082613</td><td></td></tr><tr><td>time_stamp</td><td>timestamp</td><td></td><td></td></tr><tr><td>weight_before</td><td>real</td><td>Weight before measurement (snapshot).</td><td></td></tr><tr><td>weight_after</td><td>real</td><td>Weight after measurement (snapshot).</td><td></td></tr><tr><td>water_amount</td><td>integer</td><td>Amount of water added to car. No unit.</td><td></td></tr><tr><td>completed</td><td>boolean</td><td></td><td></td></tr></tbody></table></div></div>
+				<div class="bs-docs-section">
+				<h3 id="lemnagrid_description">lemnagrid_description</h3>
+				<p>
+				</p><div class="panel panel-default">
+				<div class="panel-heading">lemnagrid_description</div>
+				<div class="panel-body">
+				<p>actual description</p>
+				<h5>References</h5>
+				<p>
+				<a href="./LemnaDBDatabase_files/LemnaDBDatabase.html">lemnagrid src img</a>
+				</p>
+				</div>
+				<table class="table">
+				<tbody><tr>
+				<th>fieldname</th><th>attribute</th><th>description</th><th>example</th></tr>
+				<tr><td>id</td><td>bigserial</td><td></td><td></td></tr><tr><td>propagated</td><td>Boolean</td><td>Unknown purpose, likely related to the propogated row in the <a href="http://localhost/LemnaDB/LemnaDB.php#snapshot">snapshot table</a></td><td></td></tr><tr><td>label</td><td>text</td><td>A user created label for this lemnagrid, that is, image analysis configuration.</td><td></td></tr><tr><td>creator</td><td>text</td><td>User who owns this configuration</td><td></td></tr><tr><td>created</td><td>timestamp</td><td></td><td></td></tr><tr><td>state</td><td>integer</td><td>Evidence suggests that there are only 2 states, 0 and 1, purpose unknown.</td><td></td></tr><tr><td>last_state_change</td><td>timestamp</td><td></td><td></td></tr><tr><td>last_state_changed_by</td><td>text</td><td>User who changed the state.</td><td></td></tr><tr><td>grid_oid</td><td>lo</td><td>unknown purpose</td><td></td></tr></tbody></table></div></div>
+				<div class="bs-docs-section">
+				<h3 id="job_table">job_table</h3>
+				<p>
+				</p><div class="panel panel-default">
+				<div class="panel-heading">job_table</div>
+				<div class="panel-body">
+				<p>Table purpose is unclear, but seems to contain references to analysis, snapshots, and configurations.</p>
+				<h5>References</h5>
+				<p>
+				No formal references, but fields are likely related to other tables.
+				</p>
+				</div>
+				<table class="table">
+				<tbody><tr>
+				<th>fieldname</th><th>attribute</th><th>description</th><th>example</th></tr>
+				<tr><td>id</td><td>big_serial</td><td></td><td></td></tr><tr><td>propagated</td><td>Boolean</td><td>Likely related to all the other propagated tables</td><td></td></tr><tr><td>snapshotid</td><td>bigint</td><td>Child snapshot.</td><td></td></tr><tr><td>idtag</td><td>text</td><td>Unknown purpose.</td><td></td></tr><tr><td>grid_id</td><td>text</td><td>Id of grid used for this job, that is, image analysis configuration.</td><td></td></tr><tr><td>ana_label</td><td>text</td><td>Unknown purpose</td><td></td></tr><tr><td>priority</td><td>integer</td><td>Priority of job in the job queue.</td><td></td></tr><tr><td>status</td><td>integer</td><td>Current status of the job</td><td></td></tr><tr><td>creator</td><td>text</td><td>Username of the creator of this job, as in the LemnaSystemDB</td><td></td></tr><tr><td>errorness</td><td>text</td><td>Purpose unclear</td><td></td></tr></tbody></table></div></div>
+				<div class="bs-docs-section">
+				<h3 id="analysis">analysis</h3>
+				<p>
+				</p><div class="panel panel-default">
+				<div class="panel-heading">analysis</div>
+				<div class="panel-body">
+				<p>Table is designed for tying all of the pieces together. It contains a reference
+		to the snapshot, grid (image analysis config), and images.</p>
+				<h5>References</h5>
+				<p>
+				
+		<a href="http://localhost/LemnaDB/LemnaDB.php#snapshot">snapshot</a>, <a href="http://localhost/LemnaDB/LemnaDB.php#lemnagrid_description">grid</a>
+		
+				</p>
+				</div>
+				<table class="table">
+				<tbody><tr>
+				<th>fieldname</th><th>attribute</th><th>description</th><th>example</th></tr>
+				<tr><td>id</td><td>big_serial</td><td>Primary key. All image tables will refer to the analysis by this ID.</td><td></td></tr><tr><td>label</td><td>text</td><td>User designed label for identifying this analysis.</td><td></td></tr><tr><td>partial_analysis</td><td>boolean</td><td>Unknown purpose</td><td></td></tr><tr><td>grid_id</td><td>text</td><td>Image analysis configuration ID. Id of the grid used for this analysis.</td><td></td></tr><tr><td>time_stamp</td><td>timestamp</td><td></td><td></td></tr><tr><td>creator</td><td>text</td><td>User who owns this analysis</td><td></td></tr><tr><td>overwritten_by_ana_i</td><td>integer</td><td>Unknown purpose</td><td></td></tr><tr><td>snapshot_id</td><td>bigint</td><td>Foreign key that references an associated snapshot.</td><td></td></tr></tbody></table></div></div>						
+						<div class="page-header">
+						<div class="bs-docs-section">
+							<h1 id="systemtables">LTSystem</h1>
+							<p class="lead">
+								The last section is for the database LTSystem. This database is primarily used for global and system settings, such as watering, usernames, and different
+								objects which are in use.
+							</p>
+							</div>
+						</div>
+
+						
+				<div class="bs-docs-section">
+				<h3 id="plants">plants</h3>
+				<p>
+				</p><div class="panel panel-default">
+				<div class="panel-heading">plants</div>
+				<div class="panel-body">
+				<p>Table used for identifying plants on the conveyer belts.</p>
+				<h5>References</h5>
+				<p>
+				
+				</p>
+				</div>
+				<table class="table">
+				<tbody><tr>
+				<th>fieldname</th><th>attribute</th><th>description</th><th>example</th></tr>
+				<tr><td>id</td><td>big_serial</td><td></td><td></td></tr><tr><td>propagated</td><td>Boolean</td><td>Recurring field of unknown purpose</td><td></td></tr><tr><td>identcode</td><td>text</td><td>Purpose unclear, but likely some identification of the plant</td><td></td></tr><tr><td>carid</td><td>text</td><td>Id of the hobo the plant is involved with.</td><td></td></tr><tr><td>type</td><td>text</td><td>No entries in database, but likely a text label for the plant (genotype).</td><td></td></tr><tr><td>creator</td><td>text</td><td>User who created this plant entry.</td><td></td></tr><tr><td>active</td><td>boolean</td><td>Marker distinguishing if the plant is currently being used.</td><td></td></tr><tr><td>timestamp</td><td>timestamp</td><td></td><td></td></tr><tr><td>on_system</td><td>boolean</td><td>Similar to active.</td><td></td></tr></tbody></table></div></div>
+				<div class="bs-docs-section">
+				<h3 id="watering">watering</h3>
+				<p>
+				</p><div class="panel panel-default">
+				<div class="panel-heading">watering</div>
+				<div class="panel-body">
+				<p>Table for global watering schedule.</p>
+				<h5>References</h5>
+				<p>
+				
+				</p>
+				</div>
+				<table class="table">
+				<tbody><tr>
+				<th>fieldname</th><th>attribute</th><th>description</th><th>example</th></tr>
+				<tr><td>id</td><td>big_serial</td><td></td><td></td></tr><tr><td>identcode</td><td>text</td><td>Some code that uniquely identifies the entry.</td><td></td></tr><tr><td>time</td><td>timestamp</td><td></td><td></td></tr><tr><td>starthour</td><td>int</td><td>0-24 range marking when the watering should begin.</td><td></td></tr><tr><td>finishhour</td><td>int</td><td>0-24 range marking when the watering should finish.</td><td></td></tr><tr><td>quantity</td><td>int</td><td>Quantity that will be output.</td><td></td></tr><tr><td>pumpname</td><td>text</td><td>Human readable label for the pump(s)</td><td></td></tr><tr><td>type</td><td>text</td><td>Human readable label for the watering entry.</td><td></td></tr><tr><td>formula</td><td>text</td><td>purpose unclear</td><td></td></tr><tr><td>done</td><td>boolean</td><td></td><td></td></tr><tr><td>status</td><td>text</td><td>Current status of the watering event.</td><td></td></tr><tr><td>processed</td><td>timestamp</td><td>Time at which the event was processed.</td><td></td></tr><tr><td>deficiency</td><td>text</td><td>Purpose unclear.</td><td></td></tr><tr><td>creator</td><td>text</td><td>User who created this watering entry</td><td></td></tr><tr><td>deflimit</td><td>int</td><td>Purpose unclear.</td><td></td></tr><tr><td>created</td><td>timestamp</td><td></td><td></td></tr><tr><td>pumpconfigid</td><td>int</td><td>Id of the pumps being used in this process. Should be comma seperated list.</td><td></td></tr></tbody></table></div></div>						
+						
+				</div>
+			</div>
+		</div>
+
+		<!-- JS and analytics only. -->
+		<!-- Bootstrap core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script async="" id="gauges-tracker" data-site-id="4f0dc9fef5a1f55508000013" src="./LemnaDBDatabase_files/track.js"></script><script src="./LemnaDBDatabase_files/jquery-2.0.3.min.js"></script>
+		<script src="./LemnaDBDatabase_files/bootstrap.js"></script>
+
+		<script src="./LemnaDBDatabase_files/widgets.js"></script>
+		<script src="./LemnaDBDatabase_files/holder.js"></script>
+
+		<script src="./LemnaDBDatabase_files/application.js"></script>
+
+		<!-- Analytics
+		================================================== -->
+		<script>
+var _gauges = _gauges || [];
+(function() {
+var t   = document.createElement('script');
+t.async = true;
+t.id    = 'gauges-tracker';
+t.setAttribute('data-site-id', '4f0dc9fef5a1f55508000013');
+t.src = '//secure.gaug.es/track.js';
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(t, s);
+})();
+		</script>
+
+	
+</body></html>
