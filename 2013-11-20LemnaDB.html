@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://getbootstrap.com/css/#tables -->
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<!-- Meta, title, CSS, favicons, etc. -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title> LemnaDB Database </title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="http://getbootstrap.com/dist/css/bootstrap.css" rel="stylesheet">
+
+		<!-- Documentation extras -->
+		<link href="bootstrap_files/docs.css" rel="stylesheet">
+		<link href="bootstrap_files/pygments-manni.css" rel="stylesheet">
+
+		<link rel="apple-touch-icon-precomposed" href="http://getbootstrap.com/assets/ico/apple-touch-icon-57-precomposed.png">
+		<link rel="shortcut icon" href="http://getbootstrap.com/assets/ico/favicon.png">
+
+		<!-- Place anything custom after this. -->
+		<style id="holderjs-style" type="text/css">
+			.holderjs-fluid {
+				font-size: 16px;
+				font-weight: bold;
+				text-align: center;
+				font-family: sans-serif;
+				margin: 0
+			}
+		</style>
+	</head>
+	<body style="" data-twttr-rendered="true">
+
+		</header>
+		<!-- Callout for the old docs link -->
+		<div class="bs-old-docs"></div>
+
+		<div class="container bs-docs-container">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="bs-sidebar hidden-print affix" role="complementary" style="position:fixed;">
+						<ul class="nav bs-sidenav">
+							<li>
+								<a href="#overview">Overview</a>
+									
+							</li>
+							<li>
+								<a href="#maintables">User Databases</a>
+								<ul class="nav">
+									<li class=''>
+												<a href='#snapshot'>snapshot</a>
+											 </li><li class=''>
+												<a href='#lemnagrid_description'>lemnagrid_description</a>
+											 </li><li class=''>
+												<a href='#job_table'>job_table</a>
+											 </li><li class=''>
+												<a href='#analysis'>analysis</a>
+											 </li><li class=''>
+												<a href='#tiled_image'>tiled_image</a>
+											 </li><li class=''>
+												<a href='#tile'>tile</a>
+											 </li><li class=''>
+												<a href='#overallconfig'>overallconfig</a>
+											 </li>								</ul>
+									
+							</li>
+							<!--  Do again for the global tables, LemnaSystem -->
+							<li>
+								<a href="#systemtables">LTSystem</a>
+								<ul class="nav">
+									<li class=''>
+												<a href='#plants'>plants</a>
+											 </li><li class=''>
+												<a href='#watering'>watering</a>
+											 </li><li class=''>
+												<a href='#pumps'>pumps</a>
+											 </li><li class=''>
+												<a href='#conveyortasks'>conveyortasks</a>
+											 </li>								</ul>
+									
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-9" role="main">
+					<!-- Global Bootstrap settings
+					================================================== -->
+						<div class="bs-docs-section">
+						<div class="page-header">
+							<h1 id="overview">Overview</h1>
+						</div>
+						<p class="lead">
+							This document contains discovered information about the LemnaTec Database System. This system contains two primary databases, 
+							one for global settings and system information (LTSystem), and the other for jobs being pushed through the system.
+						</p>
+						</div>
+						<div class="page-header">
+						<div class="bs-docs-section">
+							<h1 id="maintables">User Databases</h1>
+							<p class ="lead">
+								The following is documentation on relevant tables found in the job specific databases. All image analysis tables will being with "r_", they are
+								not documented, as they are generated at runtime. The primary purpose of these tables is to perform the image analysis. The following are the key
+								tables involved with the actual processing of the job.
+							</p>
+							</div>
+						</div>
+
+						
+				<div class='bs-docs-section'>
+				<h3 id='snapshot'>snapshot</h3>
+				<p>
+				<div class='panel panel-default'>
+				<div class='panel-heading'>snapshot</div>
+				<div class='panel-body'>
+				<p>A snapshot marks a measurement at some point in time. This usually is defined as a watering event.</p>
+				<h5>References</h5>
+				<p>
+				
+		<a href='#analysis'>analysis</a>,
+		<a href='#snapshot_changelog'>snapshot changelog</a>, 
+		<a href='#tiled_image'>tiled image</a>, 
+		<a href='#tiled_intermediate_result'>tiled intermediate result</a>, 
+		<a href='#weight_data'>weight data</a>
+				</p>
+				</div>
+				<table class='table'>
+				<tr>
+				<th>fieldname</th><th>attribute</th><th>description</th><th>example</th></tr>
+				<tr><td>id</td><td>Big Serial</td><td></td><td></td></tr><td>propagated</td><td>Boolean</td><td>Unknown purpose</td><td></td></tr><td>configuration</td><td>Big Int</td><td>Unknown purpose</td><td></td></tr><td>id_tag</td><td>Text</td><td>Barcode of the plant.</td><td></td></tr><td>colour_integer</td><td>Int</td><td>Unknown Purpose</td><td></td></tr><td>visited</td><td>Boolean</td><td>If the car has been visited</td><td></td></tr><td>creator</td><td>text</td><td>Owner of this snapshot's username as defined in the LTSystem DB.</td><td></td></tr><td>comment</td><td>Text</td><td>User input comment for this snapshot (meta comment)</td><td></td></tr><td>car_tag</td><td>text</td><td>Refers to the Car tags in LTSystem DB.</td><td></td></tr><td>measurement_label</td><td>text</td><td>User created label for this snapshot. IE Media Demo 082613</td><td></td></tr><td>time_stamp</td><td>timestamp</td><td></td><td></td></tr><td>weight_before</td><td>real</td><td>Weight before measurement (snapshot).</td><td></td></tr><td>weight_after</td><td>real</td><td>Weight after measurement (snapshot).</td><td></td></tr><td>water_amount</td><td>integer</td><td>Amount of water added to car. No unit.</td><td></td></tr><td>completed</td><td>boolean</td><td></td><td></td></tr></table></div></div>
+				<div class='bs-docs-section'>
+				<h3 id='lemnagrid_description'>lemnagrid_description</h3>
+				<p>
+				<div class='panel panel-default'>
+				<div class='panel-heading'>lemnagrid_description</div>
+				<div class='panel-body'>
+				<p>actual description</p>
+				<h5>References</h5>
+				<p>
+				<a href='#lemnagrid_srcimg'>lemnagrid src img</a>
+				</p>
+				</div>
+				<table class='table'>
+				<tr>
+				<th>fieldname</th><th>attribute</th><th>description</th><th>example</th></tr>
+				<tr><td>id</td><td>bigserial</td><td></td><td></td></tr><td>propagated</td><td>Boolean</td><td>Unknown purpose, likely related to the propogated row in the <a href='#snapshot'>snapshot table</a></td><td></td></tr><td>label</td><td>text</td><td>A user created label for this lemnagrid, that is, image analysis configuration.</td><td></td></tr><td>creator</td><td>text</td><td>User who owns this configuration</td><td></td></tr><td>created</td><td>timestamp</td><td></td><td></td></tr><td>state</td><td>integer</td><td>Evidence suggests that there are only 2 states, 0 and 1, purpose unknown.</td><td></td></tr><td>last_state_change</td><td>timestamp</td><td></td><td></td></tr><td>last_state_changed_by</td><td>text</td><td>User who changed the state.</td><td></td></tr><td>grid_oid</td><td>lo</td><td>unknown purpose</td><td></td></tr></table></div></div>
+				<div class='bs-docs-section'>
+				<h3 id='job_table'>job_table</h3>
+				<p>
+				<div class='panel panel-default'>
+				<div class='panel-heading'>job_table</div>
+				<div class='panel-body'>
+				<p>Table purpose is unclear, but seems to contain references to analysis, snapshots, and configurations.</p>
+				<h5>References</h5>
+				<p>
+				No formal references, but fields are likely related to other tables.
+				</p>
+				</div>
+				<table class='table'>
+				<tr>
+				<th>fieldname</th><th>attribute</th><th>description</th><th>example</th></tr>
+				<tr><td>id</td><td>big_serial</td><td></td><td></td></tr><td>propagated</td><td>Boolean</td><td>Likely related to all the other propagated tables</td><td></td></tr><td>snapshotid</td><td>bigint</td><td>Child snapshot.</td><td></td></tr><td>idtag</td><td>text</td><td>Unknown purpose.</td><td></td></tr><td>grid_id</td><td>text</td><td>Id of grid used for this job, that is, image analysis configuration.</td><td></td></tr><td>ana_label</td><td>text</td><td>Unknown purpose</td><td></td></tr><td>priority</td><td>integer</td><td>Priority of job in the job queue.</td><td></td></tr><td>status</td><td>integer</td><td>Current status of the job</td><td></td></tr><td>creator</td><td>text</td><td>Username of the creator of this job, as in the LemnaSystemDB</td><td></td></tr><td>errorness</td><td>text</td><td>Purpose unclear</td><td></td></tr></table></div></div>
+				<div class='bs-docs-section'>
+				<h3 id='analysis'>analysis</h3>
+				<p>
+				<div class='panel panel-default'>
+				<div class='panel-heading'>analysis</div>
+				<div class='panel-body'>
+				<p>Table is designed for tying all of the pieces together. It contains a reference
+		to the snapshot, grid (image analysis config), and images.</p>
+				<h5>References</h5>
+				<p>
+				
+		<a href='#snapshot'>snapshot</a>, <a href='#lemnagrid_description'>grid</a>
+		
+				</p>
+				</div>
+				<table class='table'>
+				<tr>
+				<th>fieldname</th><th>attribute</th><th>description</th><th>example</th></tr>
+				<tr><td>id</td><td>big_serial</td><td>Primary key. All image tables will refer to the analysis by this ID.</td><td></td></tr><td>label</td><td>text</td><td>User designed label for identifying this analysis.</td><td></td></tr><td>partial_analysis</td><td>boolean</td><td>Unknown purpose</td><td></td></tr><td>grid_id</td><td>text</td><td>Image analysis configuration ID. Id of the grid used for this analysis.</td><td></td></tr><td>time_stamp</td><td>timestamp</td><td></td><td></td></tr><td>creator</td><td>text</td><td>User who owns this analysis</td><td></td></tr><td>overwritten_by_ana_i</td><td>integer</td><td>Unknown purpose</td><td></td></tr><td>snapshot_id</td><td>bigint</td><td>Foreign key that references an associated snapshot.</td><td></td></tr></table></div></div>
+				<div class='bs-docs-section'>
+				<h3 id='tiled_image'>tiled_image</h3>
+				<p>
+				<div class='panel panel-default'>
+				<div class='panel-heading'>tiled_image</div>
+				<div class='panel-body'>
+				<p>Contains intermediate information about tiles. Tiles are typically the image set associated with a snapshot.</p>
+				<h5>References</h5>
+				<p>
+				
+				</p>
+				</div>
+				<table class='table'>
+				<tr>
+				<th>fieldname</th><th>attribute</th><th>description</th><th>example</th></tr>
+				<tr><td>id</td><td>serial</td><td>ID. Referenced by the tile table.</td><td></td></tr><td>camera_label</td><td>text</td><td>Label of the camera, nir_tv, flou_tv, vis_sv0.. etc.</td><td></td></tr><td>mm_pro_pixel_x</td><td>double precision</td><td></td><td></td></tr><td>mm_pro_pixel_y</td><td>double precision</td><td></td><td></td></tr><td>snapshot_id</td><td>bigint</td><td>ID of associated snapshot.</td><td></td></tr></table></div></div>
+				<div class='bs-docs-section'>
+				<h3 id='tile'>tile</h3>
+				<p>
+				<div class='panel panel-default'>
+				<div class='panel-heading'>tile</div>
+				<div class='panel-body'>
+				<p>Contains metadata about images, references the tiled_image.</p>
+				<h5>References</h5>
+				<p>
+				
+				</p>
+				</div>
+				<table class='table'>
+				<tr>
+				<th>fieldname</th><th>attribute</th><th>description</th><th>example</th></tr>
+				<tr><td>id</td><td>serial</td><td></td><td></td></tr><td>image_oid</td><td>lo</td><td>no data</td><td></td></tr><td>null_image_oid</td><td>lo</td><td>no data</td><td></td></tr><td>row</td><td>integer</td><td>all entries set to 0</td><td></td></tr><td>column</td><td>integer</td><td>all entries set to 0</td><td></td></tr><td>frame</td><td>integer</td><td>Fluorescent camera has three frames, this records which image belongs to which frame</td><td></td></tr><td>additional_information</td><td>text</td><td></td><td></td></tr><td>tiled_image_id</td><td>integer</td><td>reference to the tiled image table.</td><td></td></tr><td>raw_image_oid</td><td>lo</td><td>id of the image on the filesystem, should say blob<ID></td><td></td></tr><td>raw_null_image_oid</td><td>Id of the null image, that is, the image without the plant in it, probably used for subtraction.</td><td></td><td></td></tr><td>dataformat</td><td>integer</td><td></td><td></td></tr><td>width</td><td>integer</td><td></td><td></td></tr><td>height</td><td>integer</td><td></td><td></td></tr></table></div></div>
+				<div class='bs-docs-section'>
+				<h3 id='overallconfig'>overallconfig</h3>
+				<p>
+				<div class='panel panel-default'>
+				<div class='panel-heading'>overallconfig</div>
+				<div class='panel-body'>
+				<p>Table which represents the overall configs in the system.</p>
+				<h5>References</h5>
+				<p>
+				
+				</p>
+				</div>
+				<table class='table'>
+				<tr>
+				<th>fieldname</th><th>attribute</th><th>description</th><th>example</th></tr>
+				<tr><td>timestamp</td><td>timestamp</td><td></td><td></td></tr><td>creator</td><td>text</td><td></td><td></td></tr><td>grid_id</td><td>bigint</td><td>purpose unclear</td><td></td></tr><td>mpconfig_id</td><td>bigint</td><td>unclear what mpconfig is.</td><td></td></tr><td>id</td><td>bigserial</td><td></td><td></td></tr><td>propagated</td><td>boolean</td><td>purpose unclear.</td><td></td></tr><td>configname</td><td>text</td><td>Name of the overall config as seen by the user.</td><td></td></tr><td>compname</td><td>text</td><td>Possibly name of the computer that uses this config</td><td></td></tr></table></div></div>						
+						<div class="page-header">
+						<div class="bs-docs-section">
+							<h1 id="systemtables">LTSystem</h1>
+							<p class ="lead">
+								The last section is for the database LTSystem. This database is primarily used for global and system settings, such as watering, usernames, and different
+								objects which are in use.
+							</p>
+							</div>
+						</div>
+
+						
+				<div class='bs-docs-section'>
+				<h3 id='plants'>plants</h3>
+				<p>
+				<div class='panel panel-default'>
+				<div class='panel-heading'>plants</div>
+				<div class='panel-body'>
+				<p>Table used for identifying plants(cars) on the conveyer belts.</p>
+				<h5>References</h5>
+				<p>
+				
+				</p>
+				</div>
+				<table class='table'>
+				<tr>
+				<th>fieldname</th><th>attribute</th><th>description</th><th>example</th></tr>
+				<tr><td>id</td><td>big_serial</td><td></td><td></td></tr><td>propagated</td><td>Boolean</td><td>Recurring field of unknown purpose</td><td></td></tr><td>identcode</td><td>text</td><td>Barcode of the plant. This is how the plant is uniqely referenced on the user end.</td><td></td></tr><td>carid</td><td>text</td><td>Id of the car the plant is involved with.</td><td></td></tr><td>type</td><td>text</td><td>No entries in database, but likely a text label for the plant (genotype).</td><td></td></tr><td>creator</td><td>text</td><td>User who created this plant entry.</td><td></td></tr><td>active</td><td>boolean</td><td>Marker distinguishing if the plant is currently being used.</td><td></td></tr><td>timestamp</td><td>timestamp</td><td></td><td></td></tr><td>on_system</td><td>boolean</td><td>Similar to active.</td><td></td></tr></table></div></div>
+				<div class='bs-docs-section'>
+				<h3 id='watering'>watering</h3>
+				<p>
+				<div class='panel panel-default'>
+				<div class='panel-heading'>watering</div>
+				<div class='panel-body'>
+				<p>Table for global watering schedule.</p>
+				<h5>References</h5>
+				<p>
+				
+				</p>
+				</div>
+				<table class='table'>
+				<tr>
+				<th>fieldname</th><th>attribute</th><th>description</th><th>example</th></tr>
+				<tr><td>id</td><td>big_serial</td><td></td><td></td></tr><td>identcode</td><td>text</td><td>Identcode of the car that is being watered.</td><td></td></tr><td>time</td><td>timestamp</td><td></td><td></td></tr><td>starthour</td><td>int</td><td>0-24 range marking when the watering should begin.</td><td></td></tr><td>finishhour</td><td>int</td><td>0-24 range marking when the watering should finish.</td><td></td></tr><td>quantity</td><td>int</td><td>Quantity that will be output.</td><td></td></tr><td>pumpname</td><td>text</td><td>Human readable label for the pump(s)</td><td></td></tr><td>type</td><td>text</td><td>Can be either Absolute or TargetWeight. Refers to, water this amount or water until the car weights this much.</td><td></td></tr><td>formula</td><td>text</td><td>purpose unclear</td><td></td></tr><td>done</td><td>boolean</td><td></td><td></td></tr><td>status</td><td>text</td><td>Current status of the watering event.</td><td></td></tr><td>processed</td><td>timestamp</td><td>Time at which the event was processed.</td><td></td></tr><td>deficiency</td><td>text</td><td>Purpose unclear.</td><td></td></tr><td>creator</td><td>text</td><td>User who created this watering entry</td><td></td></tr><td>deflimit</td><td>int</td><td>Purpose unclear.</td><td></td></tr><td>created</td><td>timestamp</td><td></td><td></td></tr><td>pumpconfigid</td><td>int</td><td>Id of the pumps being used in this process. Should be comma separated list, or single.</td><td></td></tr></table></div></div>
+				<div class='bs-docs-section'>
+				<h3 id='pumps'>pumps</h3>
+				<p>
+				<div class='panel panel-default'>
+				<div class='panel-heading'>pumps</div>
+				<div class='panel-body'>
+				<p>Table which controls the settings of each pump.</p>
+				<h5>References</h5>
+				<p>
+				
+				</p>
+				</div>
+				<table class='table'>
+				<tr>
+				<th>fieldname</th><th>attribute</th><th>description</th><th>example</th></tr>
+				<tr><td>pumpname</td><td>text</td><td>Human readable name of the pump. Will appear to the user</td><td></td></tr><td>comport</td><td>text</td><td>Empty in all cases. Purpose unclear.</td><td></td></tr><td>califacmlpr</td><td>real</td><td>One of the calibration settings. Will appear in the LemnaTec watering tool. Presumably mlpr means milliliters per rotation.</td><td></td></tr><td>speedinmlpm</td><td>integer</td><td>Speed of the pumps in milliliters per minute.</td><td></td></tr><td>backlash</td><td>integer</td><td>Purpose unclear.</td><td></td></tr><td>direction</td><td>text</td><td>Direction of the pump, clockwise or counter-clockwise.</td><td></td></tr><td>type</td><td>text</td><td>Purpose unclear. Not a necessary field.</td><td></td></tr><td>id</td><td>bigserial</td><td></td><td></td></tr><td>propagated</td><td>boolean</td><td></td><td></td></tr><td>label</td><td>text</td><td>Label of the pump.</td><td></td></tr><td>state</td><td>state</td><td>Purpose unclear.</td><td></td></tr><td>last_state_change</td><td>timestamp</td><td></td><td></td></tr><td>last_state_changed_by</td><td>text</td><td></td><td></td></tr><td>creator</td><td>text</td><td></td><td></td></tr><td>time_stamp</td><td>timestamp</td><td></td><td></td></tr></table></div></div>
+				<div class='bs-docs-section'>
+				<h3 id='conveyortasks'>conveyortasks</h3>
+				<p>
+				<div class='panel panel-default'>
+				<div class='panel-heading'>conveyortasks</div>
+				<div class='panel-body'>
+				<p>Table responsible for running different conveyor tasks, such as watering, weighing, imaging, and some overall tasks.</p>
+				<h5>References</h5>
+				<p>
+				
+				</p>
+				</div>
+				<table class='table'>
+				<tr>
+				<th>fieldname</th><th>attribute</th><th>description</th><th>example</th></tr>
+				<tr><td>id</td><td>serial</td><td></td><td></td></tr><td>time</td><td>timestamp</td><td>Scheduled time for the job to run.</td><td></td></tr><td>mode</td><td>text</td><td>Complicated column which contains a huge amount of information about what to do. This column appears to be entirely text and colon delemited. Refer to the spreadsheet for more information.</td><td></td></tr><td>timespan</td><td>bigint</td><td>Minutes that a job is allowed to run if it fails to run the first time. This may be cause by another task not being complete which the current is scheduled to run.</td><td></td></tr><td>duration</td><td>bigint</td><td>Estimated duration that the job will run. Input by the user.</td><td></td></tr><td>startmode</td><td>integer</td><td>Purpose unclear</td><td></td></tr><td>priority</td><td>integer</td><td>If two jobs are scheduled for the same time, higher priority jobs will fire first.</td><td></td></tr><td>status</td><td>integer</td><td>Purpose unclear.</td><td></td></tr><td>oac_id</td><td>bigint</td><td>Id of the overallconfig, however not the same as the id in the overallconfig table (experiment database). Hah.</td><td></td></tr><td>oac_label</td><td>text</td><td>Label of the overallconfig that is being used. This is the same as the overallconfig table (experiment database).</td><td></td></tr><td>creator</td><td>text</td><td></td><td></td></tr><td>created</td><td>timestamp</td><td></td><td></td></tr><td>changedby</td><td>text</td><td></td><td></td></tr><td>changedat</td><td>timestamp</td><td></td><td></td></tr></table></div></div>						
+						
+				</div>
+			</div>
+		</div>
+
+		<!-- JS and analytics only. -->
+		<!-- Bootstrap core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="dist/js/jquery-2.0.3.min.js"></script>
+		<script src="./bootstrap_files/bootstrap.js"></script>
+
+		<script src="./bootstrap_files/widgets.js"></script>
+		<script src="./bootstrap_files/holder.js"></script>
+
+		<script src="./bootstrap_files/application.js"></script>
+
+		<!-- Analytics
+		================================================== -->
+		<script>
+var _gauges = _gauges || [];
+(function() {
+var t   = document.createElement('script');
+t.async = true;
+t.id    = 'gauges-tracker';
+t.setAttribute('data-site-id', '4f0dc9fef5a1f55508000013');
+t.src = '//secure.gaug.es/track.js';
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(t, s);
+})();
+		</script>
+
+	</body>
+</html>

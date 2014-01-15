@@ -19,8 +19,8 @@ include "PopulateObjects.php";
 		<link href="http://getbootstrap.com/dist/css/bootstrap.css" rel="stylesheet">
 
 		<!-- Documentation extras -->
-		<link href="http://getbootstrap.com/assets/css/docs.css" rel="stylesheet">
-		<link href="http://getbootstrap.com/assets/css/pygments-manni.css" rel="stylesheet">
+		<link href="bootstrap_files/docs.css" rel="stylesheet">
+		<link href="bootstrap_files/pygments-manni.css" rel="stylesheet">
 
 		<link rel="apple-touch-icon-precomposed" href="http://getbootstrap.com/assets/ico/apple-touch-icon-57-precomposed.png">
 		<link rel="shortcut icon" href="http://getbootstrap.com/assets/ico/favicon.png">
@@ -45,11 +45,10 @@ include "PopulateObjects.php";
 		<div class="container bs-docs-container">
 			<div class="row">
 				<div class="col-md-3">
-					<div class="bs-sidebar hidden-print affix" role="complementary">
+					<div class="bs-sidebar hidden-print affix" role="complementary" style="position:fixed;">
 						<ul class="nav bs-sidenav">
 							<li>
 								<a href="#overview">Overview</a>
-									
 							</li>
 							<li>
 								<a href="#maintables">User Databases</a>
@@ -62,7 +61,6 @@ include "PopulateObjects.php";
 											 </li>";
 									}?>
 								</ul>
-									
 							</li>
 							<!--  Do again for the global tables, LemnaSystem -->
 							<li>
@@ -76,9 +74,7 @@ include "PopulateObjects.php";
 											 </li>";
 									}?>
 								</ul>
-									
 							</li>
-							
 						</ul>
 					</div>
 				</div>

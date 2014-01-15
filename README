@@ -1,0 +1,7 @@
+There are a few files in this folder for generating documentation. The most important one being PopulateTables.php
+
+This is responsible for building the entire structure of the document. Simply follow the format already in the file to add new entries. The docx and xlsx file are flat files containing supplementary data. To view this page, it must be run with a php interpreter. A simple apache webserver should do. Alternatively, you can compile an html file to view on any machine by running:
+php LemnaDB.php > LemnaDB.html
+
+I will try to keep an up to date file to handle this.
+It still depends on the javascript and css files. So try to open it from this folder.
